@@ -1,0 +1,5 @@
+pypsa:      1.2.2
+streamlit:  1.51.0
+plotly:     6.3.0
+pandas:     2.3.3
+numpy:      2.3.5
