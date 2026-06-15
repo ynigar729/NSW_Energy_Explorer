@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NSW Energy Transition Scenario Explorer</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px;
+               margin: 40px auto; padding: 20px; }
+        h1 { color: #1a1a2e; border-bottom: 3px solid #66bb6a;
+             padding-bottom: 10px; }
+        h2 { color: #1565c0; margin-top: 30px; }
+        .chart-grid { display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 15px; margin: 20px 0; }
+        .chart-link {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            text-decoration: none;
+            color: #1a1a2e;
+            display: block;
+            transition: background 0.2s;
+        }
+        .chart-link:hover { background: #e8f5e9; }
+        .chart-link h3 { margin: 0 0 5px;
+                         color: #1565c0; font-size: 14px; }
+        .chart-link p  { margin: 0; color: #6c757d;
+                         font-size: 12px; }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .m1 { background: #fff3e0; color: #e65100; }
+        .m2 { background: #e3f2fd; color: #1565c0; }
+        .m3 { background: #e8f5e9; color: #2e7d32; }
+        .m4 { background: #f3e5f5; color: #6a1b9a; }
+        .kpi-grid { display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 10px; margin: 20px 0; }
+        .kpi { background: #f8f9fa; border-radius: 8px;
+               padding: 15px; text-align: center;
+               border: 1px solid #e9ecef; }
+        .kpi-val { font-size: 22px; font-weight: bold;
+                   color: #1a1a2e; }
+        .kpi-lab { font-size: 11px; color: #6c757d;
+                   margin-top: 4px; }
+    </style>
+</head>
+<body>
+    <h1>⚡ NSW Energy Transition Scenario Explorer</h1>
+    <p>
+        Interactive energy market dashboard built with PyPSA and
+        Streamlit, inspired by PLEXOS production cost modelling.
+        <br>
+        <strong>Data:</strong> AEMO NEM Registration &amp;
+        Exemption List (June 2026) |
+        <strong>Date:</strong> 17 January 2024 peak demand day
+    </p>
 
+    <div class="kpi-grid">
+        <div class="kpi">
+            <div class="kpi-val">10,100 MW</div>
+            <div class="kpi-lab">Peak demand</div>
+        </div>
+        <div class="kpi">
+            <div class="kpi-val">36,942 MWh</div>
+            <div class="kpi-lab">Solar curtailed</div>
+        </div>
+        <div class="kpi">
+            <div class="kpi-val">$3.2B</div>
+            <div class="kpi-lab">Expansion capex</div>
+        </div>
+        <div class="kpi">
+            <div class="kpi-val">84%</div>
+            <div class="kpi-lab">Emission reduction</div>
+        </div>
+    </div>
+
+    <h2>📊 Module 1 — Economic Dispatch</h2>
+    <div class="chart-grid">
+        <a class="chart-link" href="01_generation_stack.html">
+            <span class="badge m1">Module 1</span>
+            <h3>🔋 Hourly Generation Stack</h3>
+            <p>Merit order dispatch — solar, wind, hydro,
+               coal, gas across 24 hours</p>
+        </a>
+        <a class="chart-link" href="02_merit_order.html">
+            <span class="badge m1">Module 1</span>
+            <h3>📈 Merit Order Supply Curve</h3>
+            <p>Supply stack from $3 solar to
+               $180 gas peaker</p>
+        </a>
+        <a class="chart-link" href="03_generation_mix.html">
+            <span class="badge m1">Module 1</span>
+            <h3>🥧 Generation Mix Donut</h3>
+            <p>Fuel breakdown by total MWh
+               generated</p>
+        </a>
+    </div>
+
+    <h2>🔋 Module 2 — Battery Storage</h2>
+    <div class="chart-grid">
+        <a class="chart-link" href="04_battery_operation.html">
+            <span class="badge m2">Module 2</span>
+            <h3>🔋 Battery Charge/Discharge/SOC</h3>
+            <p>Waratah Super Battery 1,096 MW —
+               overnight charging, evening discharge</p>
+        </a>
+        <a class="chart-link" href="05_battery_cost_comparison.html">
+            <span class="badge m2">Module 2</span>
+            <h3>💰 Cost With vs Without Battery</h3>
+            <p>Hourly cost comparison showing
+               arbitrage savings</p>
+        </a>
+    </div>
+
+    <h2>🏗️ Module 3 — Capacity Expansion</h2>
+    <div class="chart-grid">
+        <a class="chart-link" href="06_capacity_expansion.html">
+            <span class="badge m3">Module 3</span>
+            <h3>🏗️ New Build Decisions</h3>
+            <p>Least-cost investment after coal retirement
+               and 20% demand growth</p>
+        </a>
+        <a class="chart-link" href="07_today_vs_future.html">
+            <span class="badge m3">Module 3</span>
+            <h3>📊 Today vs Future Capacity</h3>
+            <p>Installed capacity comparison
+               by technology</p>
+        </a>
+    </div>
+
+    <h2>🌍 Module 4 — Scenario Analysis</h2>
+    <div class="chart-grid">
+        <a class="chart-link" href="08_scenario_cost.html">
+            <span class="badge m4">Module 4</span>
+            <h3>💰 Total Cost by Scenario</h3>
+            <p>Base vs High Gas vs High Renewables
+               — cost comparison</p>
+        </a>
+        <a class="chart-link" href="09_scenario_renewable.html">
+            <span class="badge m4">Module 4</span>
+            <h3>🌿 Renewable Share by Scenario</h3>
+            <p>Renewable percentage across
+               three policy scenarios</p>
+        </a>
+        <a class="chart-link" href="10_scenario_emissions.html">
+            <span class="badge m4">Module 4</span>
+            <h3>💨 CO2 Emissions by Scenario</h3>
+            <p>Emissions comparison — coal vs gas
+               vs renewables transition</p>
+        </a>
+        <a class="chart-link" href="11_stack_base.html">
+            <span class="badge m4">Module 4</span>
+            <h3>🔋 Base Scenario Stack</h3>
+            <p>Generation dispatch —
+               today's grid</p>
+        </a>
+        <a class="chart-link" href="11_stack_high_gas.html">
+            <span class="badge m4">Module 4</span>
+            <h3>🔥 High Gas Scenario Stack</h3>
+            <p>Generation dispatch —
+               coal replaced by gas</p>
+        </a>
+        <a class="chart-link"
+           href="11_stack_high_renewables.html">
+            <span class="badge m4">Module 4</span>
+            <h3>🌿 High Renewables Stack</h3>
+            <p>Generation dispatch —
+               coal replaced by renewables</p>
+        </a>
+    </div>
+
+    <hr>
+    <p style="color:#6c757d; font-size:12px;">
+        Data: AEMO NEM Registration &amp; Exemption List
+        (June 2026) |
+        Model: PyPSA linear optimal dispatch |
+        Solver: HiGHS |
+        Built for NSW Energy Data &amp; Analytics portfolio
+    </p>
+</body>
+</html>
