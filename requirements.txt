@@ -1,6 +1,7 @@
-pypsa
-streamlit
-plotly
-pandas
-numpy
+pypsa==0.26.2
+streamlit==1.32.0
+plotly==5.18.0
+pandas==2.1.0
+numpy==1.26.0
+highspy==1.5.3
 
